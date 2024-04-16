@@ -7,6 +7,7 @@ function App() {
 
   const [cats, setCats] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   const skeletonConfig = ['red', 'orange', 'purple'];
   const skeletons = skeletonConfig.map(color => (
@@ -15,10 +16,16 @@ function App() {
 
   async function fetchCats() {
 
-    const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=8');
-    const catData = await response.json();
+    try {
+      const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=8');
+      const catData = await response.json();
 
-    return catData;
+      return catData;
+
+    } catch (error) {
+      console.log(error);
+      setError(true);
+    }
   }
 
   const handleScroll = async () => {
@@ -46,15 +53,33 @@ function App() {
   }, []);
 
   return (
-    <Container maxW={['container.sm', null, 'container.xl']} centerContent>
-      <Heading mb={3}>Infinite Cat Scroll</Heading>
-      <Text as='cite' fontSize='md'>because sometimes all you want are more cats</Text>
-      <Box w='100%'>
+    <Container as='main' maxW={['container.sm', null, 'container.xl']} bg='purple.50' centerContent>
+      <Heading
+        as='h1'
+        mt={6}
+        size={['3xl', null, '4xl']}
+        mb={3}
+        bgClip='text'
+        bgGradient='linear(to-l, #7928CA, #FF0080)'
+        textShadow='rgba(243,229,229,0.35) 0px -5px 0px'
+      >
+        Infinite Cat Scroll
+      </Heading>
+      <Text as='cite' my={3} fontSize={['sm', null, 'md']} color='pink.700'>because sometimes all you want are more cats</Text>
+      <Box as='section' w='100%'>
         <PhotoAlbum
           layout='masonry'
           photos={cats}
           renderPhoto={({ photo }) => (
-            <Image src={photo.url} alt='Image of a cat' objectFit='cover' p={1} />
+            <Image
+              key={photo.id}
+              src={photo.url}
+              alt='Image of a cat'
+              objectFit='cover'
+              m={1}
+              boxShadow='base'
+              borderRadius='lg'
+            />
           )}
         />
         {loading && skeletons}
