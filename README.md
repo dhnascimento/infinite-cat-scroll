@@ -43,6 +43,7 @@ Contributions are welcome! If you'd like to add more features, fix bugs, or impr
 ## Acknowledgments
 
 - Cat images courtesy of [The Cat API](https://thecatapi.com).
+- The tidy images grid relied on [React Photo Album](https://react-photo-album.com).
 - Inspired by the infinite scroll trend and our love for cats.
 
 Happy cat-scrolling! 🐾
