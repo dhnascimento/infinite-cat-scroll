@@ -1,8 +1,48 @@
-Infinite Cat Scroll
+# Infinite Cat Scroll
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the **Infinite Cat Scroll** project! 🐱
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The Infinite Cat Scroll is a delightful web application that allows users to scroll through an endless stream of adorable cat images. Whether you're a cat lover or just need a dose of cuteness, this project has got you covered!
+
+This project is part of my journey to improve my React skills and get more familiar with Vite and Charka UI.
+
+## Features
+
+- Endless scrolling: Keep swiping down, and the cats will keep coming!
+- Random cat images: Each scroll reveals new feline friends.
+- Responsive design: Works seamlessly on desktop and mobile devices.
+
+## Installation
+
+1. Clone this repository to your local machine:
+
+git clone https://github.com/dhnascimento/infinite-cat-scroll.git
+
+
+2. Navigate to the project directory:
+
+cd infinite-cat-scroll
+
+
+3. Install dependencies:
+
+npm install
+
+
+4. Start the development server:
+
+npm run dev
+
+
+## Contributing
+
+Contributions are welcome! If you'd like to add more features, fix bugs, or improve the cat-scrolling experience, feel free to submit a pull request.
+
+## Acknowledgments
+
+- Cat images courtesy of [The Cat API](https://thecatapi.com).
+- Inspired by the infinite scroll trend and our love for cats.
+
+Happy cat-scrolling! 🐾
