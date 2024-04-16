@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Container, Heading, Text, Box, Skeleton, SimpleGrid } from '@chakra-ui/react'
-import CatCard from './components/CatCard';
+import { Container, Heading, Text, Box, Skeleton, SimpleGrid, Image } from '@chakra-ui/react'
+import PhotoAlbum from "react-photo-album";
 
 
 function App() {
@@ -24,10 +24,11 @@ function App() {
   const handleScroll = async () => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
       setLoading(true);
-      const moreCats = await fetchCats();
-
-      setCats((prev) => [...prev, ...moreCats]);
-      setLoading(false);
+      setTimeout(async () => {
+        const moreCats = await fetchCats();
+        setCats((prev) => [...prev, ...moreCats]);
+        setLoading(false);
+      }, 2000);
     }
   }
 
@@ -49,12 +50,13 @@ function App() {
       <Heading mb={3}>Infinite Cat Scroll</Heading>
       <Text as='cite' fontSize='md'>because sometimes all you want are more cats</Text>
       <Box w='100%'>
-        {<SimpleGrid columns={[2, null, 4]} spacing={12}>
-          {cats.map((cat) => (
-            <CatCard key={cat.id} catData={cat} />
-          ))}
-        </SimpleGrid>
-        }
+        <PhotoAlbum
+          layout='masonry'
+          photos={cats}
+          renderPhoto={({ photo }) => (
+            <Image src={photo.url} alt='Image of a cat' objectFit='cover' p={1} />
+          )}
+        />
         {loading && skeletons}
       </Box>
     </Container>
