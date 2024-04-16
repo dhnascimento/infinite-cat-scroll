@@ -57,11 +57,12 @@ function App() {
       <Heading
         as='h1'
         mt={6}
-        size={['3xl', null, '4xl']}
+        size={['2xl', null, '4xl']}
         mb={3}
         bgClip='text'
         bgGradient='linear(to-l, #7928CA, #FF0080)'
         textShadow='rgba(243,229,229,0.35) 0px -5px 0px'
+        _before={{ content: "'🐈‍⬛'", display: 'inline-block', ml: '4px', padding: '5px', fontSize: '0.7em' }}
       >
         Infinite Cat Scroll
       </Heading>
