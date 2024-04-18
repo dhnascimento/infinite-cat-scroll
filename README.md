@@ -17,28 +17,24 @@ This project is part of my journey to improve my React skills and get more famil
 ## Installation
 
 1. Clone this repository to your local machine:
-
+```
 git clone https://github.com/dhnascimento/infinite-cat-scroll.git
-
+```
 
 2. Navigate to the project directory:
-
+```
 cd infinite-cat-scroll
-
+```
 
 3. Install dependencies:
-
+```
 npm install
-
+```
 
 4. Start the development server:
-
+```
 npm run dev
-
-
-## Contributing
-
-Contributions are welcome! If you'd like to add more features, fix bugs, or improve the cat-scrolling experience, feel free to submit a pull request.
+```
 
 ## Acknowledgments
 
