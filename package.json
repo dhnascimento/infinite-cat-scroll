@@ -2,7 +2,7 @@
   "homepage": "https://dhnascimento.github.io/infinite-cat-scroll",
   "name": "infinite-cat-scroll",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
