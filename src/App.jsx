@@ -14,25 +14,29 @@ function App() {
     <Skeleton w='100%' my='2' startColor={`${color}.200`} endColor={`${color}.500`} height='20px' />
   ));
 
-  async function fetchCats() {
+  async function fetchCats(times = 1) {
+    let catData = [];
 
-    try {
-      const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=8');
-      const catData = await response.json();
+    for (let i = 0; i < times; i++) {
 
-      return catData;
+      try {
+        const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=10');
+        const data = await response.json();
+        catData = [...catData, ...data];
+      } catch (error) {
+        console.log(error);
+        setError(true);
+      }
 
-    } catch (error) {
-      console.log(error);
-      setError(true);
     }
+    return catData;
   }
 
   const handleScroll = async () => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
       setLoading(true);
       setTimeout(async () => {
-        const moreCats = await fetchCats();
+        const moreCats = await fetchCats(2);
         setCats((prev) => [...prev, ...moreCats]);
         setLoading(false);
       }, 2000);
@@ -46,7 +50,7 @@ function App() {
 
   useEffect(() => {
     (async () => {
-      const initCatData = await fetchCats();
+      const initCatData = await fetchCats(4);
       setCats(prev => [...prev, ...initCatData]);
     })();
     return () => { }
