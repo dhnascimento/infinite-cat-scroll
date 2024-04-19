@@ -33,7 +33,7 @@ function App() {
   }
 
   const handleScroll = async () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    if (window.innerHeight + document.documentElement.scrollTop >= document.documentElement.scrollHeight) {
       setLoading(true);
       setTimeout(async () => {
         const moreCats = await fetchCats(2);
